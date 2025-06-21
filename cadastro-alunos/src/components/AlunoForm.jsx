@@ -10,7 +10,9 @@ const AlunoForm = ({ onSubmit, initialData }) => {
   });
 
   useEffect(() => {
-    if (initialData) setAluno(initialData);
+    if (initialData) {
+      setAluno(initialData);
+    }
   }, [initialData]);
 
   const handleChange = (e) => {
@@ -26,7 +28,13 @@ const AlunoForm = ({ onSubmit, initialData }) => {
     <Box
       component="form"
       onSubmit={handleSubmit}
-      sx={{ display: 'flex', flexDirection: 'column', gap: 2, maxWidth: 400 }}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 2,
+        maxWidth: 400,
+        margin: '0 auto',
+      }}
     >
       <TextField
         label="Nome"
@@ -38,21 +46,19 @@ const AlunoForm = ({ onSubmit, initialData }) => {
       <TextField
         label="Turma"
         name="turma"
-        value={aluno.turma}
+        value={aluno.turma || ''}
         onChange={handleChange}
-        required
       />
       <TextField
         label="Curso"
         name="curso"
-        value={aluno.curso}
+        value={aluno.curso || ''}
         onChange={handleChange}
-        required
       />
       <TextField
         label="Matrícula"
         name="matricula"
-        value={aluno.matricula}
+        value={aluno.matricula || ''}
         onChange={handleChange}
         required
       />
